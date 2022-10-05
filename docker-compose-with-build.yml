@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:80'
+    restart: always
+  frontend-ssr:
+    build:
+      context: .
+      dockerfile: multi.Dockerfile
+    ports:
+      - '4000:80'
+    restart: always
+    depends_on:
+      - frontend

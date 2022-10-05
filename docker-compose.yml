@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  next-dockerized:
+    image: omadar/next-dockerized:latest
+    ports:
+      - '3000:80'
+    restart: always
+  next-ssr-dockerized:
+    image: omadar/next-ssr-dockerized:latest
+    ports:
+      - '4000:3000'
+    restart: always
+    depends_on:
+      - next-dockerized
